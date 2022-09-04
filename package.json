@@ -1,0 +1,29 @@
+{
+  "name": "fullsfoodcrew",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "package": "svelte-kit package",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-auto": "next",
+    "@sveltejs/kit": "next",
+    "sass": "^1.53.0",
+    "svelte": "^3.44.0",
+    "svelte-icons": "^2.1.0",
+    "svelte-preprocess": "^4.10.7",
+    "vite": "^3.0.0"
+  },
+  "dependencies": {
+    "@sendgrid/mail": "^7.7.0",
+    "bcrypt": "^5.0.1",
+    "cookie": "^0.5.0",
+    "dotenv": "^16.0.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^4.8.1",
+    "swiper": "^8.3.2"
+  },
+  "type": "module"
+}

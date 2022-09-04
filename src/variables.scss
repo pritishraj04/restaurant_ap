@@ -1,0 +1,124 @@
+/* Variables and mixins declared here will be available in all other SCSS files */
+
+//Variables
+$accent: #d29e1b;
+$black: #000000;
+$white: #ffffff;
+$bg-gray: #f6f6f6;
+$bg-gray-sec: #dfdfdf;
+$btn-gray: #ececec;
+$gray: #666666;
+$font: #343434;
+$lime: #c4de20;
+$positive: #2ab53f;
+$negative: #ff0000;
+
+// Mixins
+
+// Drop shadow
+
+@mixin drop-shadow {
+  box-shadow: 1px 1px 1px 1px hsla(245, 71%, 74%, 0.25);
+}
+
+// Drop shadow
+
+@mixin blur-bg($theme: light) {
+  @if $theme == light {
+    background-color: hsla(0, 0%, 96%, 0.55);
+    backdrop-filter: blur(6px);
+    @supports not (backdrop-filter: blur(2px)) {
+      background-color: hsla(0, 0%, 96%, 0.9);
+    }
+  }
+  @if $theme == dark {
+    background-color: hsla(0, 0%, 14%, 0.55);
+    backdrop-filter: blur(6px);
+    color: $white;
+    @supports not (backdrop-filter: blur(2px)) {
+      background-color: hsla(0, 0%, 14%, 0.9);
+    }
+  }
+}
+
+// Flex Mixins
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-center-column {
+  @include flex-center;
+  flex-direction: column;
+}
+
+@mixin flex-center-vert {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flex-center-horiz {
+  display: flex;
+  justify-content: center;
+}
+
+// Border radius
+
+@mixin border-radius {
+  border-radius: 25px;
+}
+
+@mixin flex-center-horiz {
+  display: flex;
+  justify-content: center;
+}
+
+// Absolute position
+
+@mixin abs-position($top, $right, $bottom, $left) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+// Breakpoints
+
+@mixin breakpoint($point) {
+  @if $point == xl-desktop {
+    @media only screen and (max-width: 1400px) {
+      @content;
+    }
+  } @else if $point == lg-desktop {
+    @media only screen and (max-width: 1200px) {
+      @content;
+    }
+  } @else if $point == desktop {
+    @media only screen and (max-width: 992px) {
+      @content;
+    }
+  } @else if $point == tablet {
+    @media only screen and (max-width: 768px) {
+      @content;
+    }
+  } @else if $point == mobile {
+    @media only screen and (max-width: 576px) {
+      @content;
+    }
+  }
+}
+
+// Rem
+
+@mixin font-size($size, $base: 16) {
+  font-size: $size; // fallback for old browsers
+  font-size: ($size / $base) * 1rem;
+}
